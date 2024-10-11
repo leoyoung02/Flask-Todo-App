@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Edit To-Do{% endblock %}
+{% block content %}
+<h1 align="center">Edit To-Do</h1>
+
+<form method="POST">
+  <input type="hidden" name="id" value="{{ todo.id }}">
+  <textarea name="title" id="title" class="form-control">{{ todo.title }}</textarea>
+  <br />
+  <label for="due_date">Due Date:</label>
+  <input type="date" name="due_date" class="form-control" value="{{ todo.due_date.strftime('%Y-%m-%d') if todo.due_date else '' }}">
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-success">Save Changes</button>
+  </div>
+</form>
+{% endblock %}
